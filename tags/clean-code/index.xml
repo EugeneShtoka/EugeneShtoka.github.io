@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloud-Surf</title>
-    <link>https://example.org/</link>
-    <description>Recent content on Cloud-Surf</description>
+    <title>Clean Code on Cloud-Surf</title>
+    <link>https://example.org/tags/clean-code/</link>
+    <description>Recent content in Clean Code on Cloud-Surf</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 04 May 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/clean-code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clean Code</title>
       <link>https://example.org/post/clean-code/</link>
       <pubDate>Sat, 04 May 2024 10:00:00 +0000</pubDate>
       <guid>https://example.org/post/clean-code/</guid>
       <description>Readable Code: Practical Tips for Senior Software Engineers #Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it?</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://example.org/about/</link>
-      <pubDate>Wed, 01 May 2024 10:00:00 +0300</pubDate>
-      <guid>https://example.org/about/</guid>
-      <description>A Warm Shalom from sunny Israel!</description>
     </item>
   </channel>
 </rss>
