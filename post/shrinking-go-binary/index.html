@@ -17,8 +17,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="rgb(255,255,255)" />
   
-  <title>Clean Code &middot; Cloud-Surf</title>
-    <meta name="title" content="Clean Code &middot; Cloud-Surf" />
+  <title>Shrinking Go Binary &middot; Cloud-Surf</title>
+    <meta name="title" content="Shrinking Go Binary &middot; Cloud-Surf" />
   
   
   
@@ -72,14 +72,14 @@
     name="description"
     content="
       
-        Readable Code: Practical Tips for Senior Software Engineers #Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it?
+        Battling Bloated Binaries: My Journey to Shrink a Go CLI Tool #Modern software often comes with a large footprint, partly due to the convenience of abstraction layers and the practice of static linking in Go, which bundles all dependencies into a single executable.
       
     "
   />
   
   
   
-  <link rel="canonical" href="https://example.org/post/clean-code/" />
+  <link rel="canonical" href="https://example.org/post/shrinking-go-binary/" />
   
   
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -94,21 +94,21 @@
   
   
   
-  <meta property="og:url" content="https://example.org/post/clean-code/">
+  <meta property="og:url" content="https://example.org/post/shrinking-go-binary/">
   <meta property="og:site_name" content="Cloud-Surf">
-  <meta property="og:title" content="Clean Code">
-  <meta property="og:description" content="Readable Code: Practical Tips for Senior Software Engineers #Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it?">
+  <meta property="og:title" content="Shrinking Go Binary">
+  <meta property="og:description" content="Battling Bloated Binaries: My Journey to Shrink a Go CLI Tool #Modern software often comes with a large footprint, partly due to the convenience of abstraction layers and the practice of static linking in Go, which bundles all dependencies into a single executable.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2024-05-04T10:00:00+00:00">
-    <meta property="article:modified_time" content="2024-05-04T10:00:00+00:00">
-    <meta property="article:tag" content="Clean Code">
+    <meta property="article:published_time" content="2024-05-11T10:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-11T10:00:00+00:00">
+    <meta property="article:tag" content="Go">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Clean Code">
-  <meta name="twitter:description" content="Readable Code: Practical Tips for Senior Software Engineers #Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it?">
+  <meta name="twitter:title" content="Shrinking Go Binary">
+  <meta name="twitter:description" content="Battling Bloated Binaries: My Journey to Shrink a Go CLI Tool #Modern software often comes with a large footprint, partly due to the convenience of abstraction layers and the practice of static linking in Go, which bundles all dependencies into a single executable.">
 
   
   <script type="application/ld+json">
@@ -116,26 +116,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Clean Code",
-    "headline": "Clean Code",
+    "name": "Shrinking Go Binary",
+    "headline": "Shrinking Go Binary",
     
-    "abstract": "Readable Code: Practical Tips for Senior Software Engineers #Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it?",
+    "abstract": "Battling Bloated Binaries: My Journey to Shrink a Go CLI Tool #Modern software often comes with a large footprint, partly due to the convenience of abstraction layers and the practice of static linking in Go, which bundles all dependencies into a single executable.",
     "inLanguage": "en",
-    "url" : "https:\/\/example.org\/post\/clean-code\/",
+    "url" : "https:\/\/example.org\/post\/shrinking-go-binary\/",
     "author" : {
       "@type": "Person",
       "name": "Eugene Shtoka"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-05-04T10:00:00\u002b00:00",
-    "datePublished": "2024-05-04T10:00:00\u002b00:00",
+    "dateCreated": "2024-05-11T10:00:00\u002b00:00",
+    "datePublished": "2024-05-11T10:00:00\u002b00:00",
     
-    "dateModified": "2024-05-04T10:00:00\u002b00:00",
+    "dateModified": "2024-05-11T10:00:00\u002b00:00",
     
-    "keywords": ["clean code"],
+    "keywords": ["go"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "554"
+    "wordCount": "436"
   }
   </script>
 
@@ -291,7 +291,7 @@
     <header class="max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Clean Code
+        Shrinking Go Binary
       </h1>
       
         <div class="mb-12 mt-8 text-base text-neutral-500 print:hidden dark:text-neutral-400">
@@ -327,7 +327,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2024-05-04 10:00:00 &#43;0000 UTC">4 May 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+      <time datetime="2024-05-11 10:00:00 &#43;0000 UTC">11 May 2024</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
     
 
     
@@ -345,31 +345,17 @@
     <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
       
       <div class="min-h-0 min-w-0 max-w-prose grow">
-        <p>
-
-
-
-
-
-
-  
-  
-<figure><img src="./image.webp" alt="Clean Code" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
-<h2 id="readable-code-practical-tips-for-senior-software-engineers" class="relative group">Readable Code: Practical Tips for Senior Software Engineers <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#readable-code-practical-tips-for-senior-software-engineers" aria-label="Anchor">#</a></span></h2><p>Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it? In this post, I&rsquo;ll explore the concept of readability and share some practical tips to help you write code that&rsquo;s easy to understand and maintain.</p>
-<h2 id="defining-readability" class="relative group">Defining Readability <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#defining-readability" aria-label="Anchor">#</a></span></h2><p>For me, readable code allows a developer to quickly grasp the main purpose and logic flow without straining their mental capacity. Since our working memory is limited, we need to break down complex code into smaller, easily digestible chunks.</p>
-<p>Let&rsquo;s dive into some simple but powerful principles that I apply daily to write cleaner code. These practices are mostly broadly applicable, while some are more specific to JavaScript/TypeScript.</p>
-<h2 id="prevent-side-effects" class="relative group">Prevent Side Effects <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#prevent-side-effects" aria-label="Anchor">#</a></span></h2><p>Methods should perform a single, well-defined task. Side effects make code unpredictable by changing things outside the method&rsquo;s intended scope. This creates a mismatch between your mental model of the code and its actual behavior, leading to bugs.</p>
-<h2 id="descriptive-names" class="relative group">Descriptive Names <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#descriptive-names" aria-label="Anchor">#</a></span></h2><p>Descriptive names serves same purpose: enabling code abstraction. You can quickly grasp the purpose of a method by its name, allowing you to treat it as a self-contained unit.</p>
-<h2 id="define-and-follow-conventions" class="relative group">Define And Follow Conventions <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#define-and-follow-conventions" aria-label="Anchor">#</a></span></h2><p>In large, collaborative projects, consistent conventions make code feel like it was written by a single person. This homogeneity dramatically improves readability. Use a linter to enforce your chosen conventions. (What is the difference between prettify and eslint)</p>
-<h2 id="minimal-branching" class="relative group">Minimal Branching <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#minimal-branching" aria-label="Anchor">#</a></span></h2><p>Strive to merge code paths as quickly as possible. When the same task can be done in multiple ways, inconsistencies are likely to creep in when eventually only one branch will be modified upon subsequent features implementation.</p>
-<h2 id="strict-types-usage" class="relative group">Strict Types Usage <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#strict-types-usage" aria-label="Anchor">#</a></span></h2><p>Defining interfaces instead of using &lsquo;any&rsquo; adds valuable guardrails to your code. It restricts how a function can be used, provides helpful IDE support, and clearly documents your intended use for future developers (including yourself!).</p>
-<h2 id="promote-compile-time-error-checking" class="relative group">Promote Compile-Time Error Checking <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#promote-compile-time-error-checking" aria-label="Anchor">#</a></span></h2><p>Analyze your code to see if you can refactor it for compile-time error catching. Errors found during compilation are far easier to identify and resolve, often with direct IDE assistance. To promote errors to compile-time you can configure your linter with rigorous rules and elevate warnings to error status.</p>
-<h2 id="embrace-named-constants" class="relative group">Embrace Named Constants <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#embrace-named-constants" aria-label="Anchor">#</a></span></h2><p>Use descriptive named constants instead of raw numbers or strings. Constants improve consistency, make changes easier, and provide valuable context right where they&rsquo;re used.</p>
-<h2 id="avoid-flag-arguments" class="relative group">Avoid Flag Arguments <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#avoid-flag-arguments" aria-label="Anchor">#</a></span></h2><p>Flag arguments that change a method&rsquo;s behavior are a serious anti-pattern. Consider the Strategy pattern or break the logic into smaller, more focused units. Never resort to flag arguments!</p>
-<h2 id="eliminate-code-duplication" class="relative group">Eliminate Code Duplication <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#eliminate-code-duplication" aria-label="Anchor">#</a></span></h2><p>It might seem obvious, but code duplication is surprisingly common. With duplicate code you have more code to maintain, more tests to cover the code and as a result you need more resource to properly maintaining the code base. Duplicate code often signals deeper design issues. If you see a similar case that needs only minor changes, maybe it can be solved with parameter. Maybe the methods need to be shorter and more focused. And maybe even the business logic can be questioned and reviewed to simplify both user experience and the code base.</p>
-<h2 id="write-clean-code---reap-big-benefits" class="relative group">Write clean code - reap big benefits <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#write-clean-code---reap-big-benefits" aria-label="Anchor">#</a></span></h2><p>Following these simple practices will dramatically improve the clarity and maintainability of your code and make your future self (and colleagues) happy.</p>
+        <h2 id="battling-bloated-binaries-my-journey-to-shrink-a-go-cli-tool" class="relative group">Battling Bloated Binaries: My Journey to Shrink a Go CLI Tool <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#battling-bloated-binaries-my-journey-to-shrink-a-go-cli-tool" aria-label="Anchor">#</a></span></h2><p>Modern software often comes with a large footprint, partly due to the convenience of abstraction layers and the practice of static linking in Go, which bundles all dependencies into a single executable. This became apparent when I built a simple Go-based CLI tool for managing calendar events - <a href="https://github.com/EugeneShtoka/figoro" target="_blank" rel="noreferrer">figoro</a>, resulting in a surprisingly large 24MB file. To address this, I embarked on a journey to slim down the binary, uncovering various techniques and their associated tradeoffs along the way.</p>
+<h2 id="step-one-stripping-for-a-leaner-build" class="relative group">Step One: Stripping for a Leaner Build <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#step-one-stripping-for-a-leaner-build" aria-label="Anchor">#</a></span></h2><p>Go&rsquo;s -s -w build flags remove debugging information, immediately cutting my binary&rsquo;s size by 33% from 24MB to 16MB.</p>
+<p>The tradeoff here is straightforward: it makes debugging harder if you need it later.</p>
+<pre tabindex="0"><code>go build -ldflags &#34;-s -w&#34;
+</code></pre><h2 id="step-two-compressing-with-upx" class="relative group">Step Two: Compressing with UPX <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#step-two-compressing-with-upx" aria-label="Anchor">#</a></span></h2><p>Leveraging an executable packer opened up another avenue for optimization. UPX, a common choice for Go projects, further compressed the binary, achieving a remarkable 41% reduction (74% overall). In pursuit of maximum efficiency, I experimented with UPX&rsquo;s compression flags, including &ndash;brute, &ndash;force-brute, and &ndash;lzma. LZMA emerged as the superior option, striking the best balance between speed and compression, and reducing the binary size by an additional 6% (80% in total).</p>
+<p>This time a tradeoff was significant: a notably longer startup delay, with execution time jumping from 24ms to 300ms (a 1150% increase). While this impact is less pronounced for longer operations, a 0.3-second delay is still perceptible.</p>
+<pre tabindex="0"><code>go build -ldflags &#34;-s -w&#34; . &amp;&amp; upx -9 --lzma figoro
+</code></pre><h2 id="step-three-using-alternative-compiler" class="relative group">Step three: Using alternative compiler <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#step-three-using-alternative-compiler" aria-label="Anchor">#</a></span></h2><p>Alternative gccgo compiler offers potential benefits in reduced binary size and improved performance, albeit at the cost of increased compilation time and debugging complexity. However, as of version 15, gccgo supports Go 1.18 but lacks support for generics. Since generics are an integral part of of the tool, building the project with the current version of gccgo is not feasible.</p>
+<h2 id="summary" class="relative group">Summary <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a></span></h2><p>While UPX compression yielded impressive results, the tradeoff of increased execution time ultimately made it unsuitable for my use case of a command-line utility. The size reduction didn&rsquo;t justify the noticeable 0.3-second delay in startup.</p>
+<p>However, for a daemon service where startup time is less critical, the compression benefits would outweigh the increased execution time.</p>
+<p>And third option is no go for me in this case as well, as I prefer the self-contained nature of a statically linked binary, ensuring my utility&rsquo;s functionality regardless of system changes. So, stripping debug info it is! A 33% size reduction is a win, and I can deal with the debugging hurdles if they come up.</p>
 
       </div>
     </section>
@@ -497,27 +483,27 @@
       <div class="flex justify-between pt-3">
         <span>
           
-        </span>
-        <span>
-          
-            <a class="group flex text-right" href="/post/shrinking-go-binary/">
+            <a class="group flex" href="/post/clean-code/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Shrinking Go Binary</span
+                  >Clean Code</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-05-11 10:00:00 &#43;0000 UTC">11 May 2024</time>
+                    <time datetime="2024-05-04 10:00:00 &#43;0000 UTC">4 May 2024</time>
                   
                 </span>
               </span>
-              <span
-                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
-                ><span class="ltr:inline rtl:hidden">&rarr;</span
-                ><span class="ltr:hidden rtl:inline">&larr;</span></span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

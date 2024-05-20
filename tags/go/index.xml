@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Cloud-Surf</title>
-    <link>https://example.org/post/</link>
-    <description>Recent content in Posts on Cloud-Surf</description>
+    <title>Go on Cloud-Surf</title>
+    <link>https://example.org/tags/go/</link>
+    <description>Recent content in Go on Cloud-Surf</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 11 May 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shrinking Go Binary</title>
       <link>https://example.org/post/shrinking-go-binary/</link>
       <pubDate>Sat, 11 May 2024 10:00:00 +0000</pubDate>
       <guid>https://example.org/post/shrinking-go-binary/</guid>
       <description>Battling Bloated Binaries: My Journey to Shrink a Go CLI Tool #Modern software often comes with a large footprint, partly due to the convenience of abstraction layers and the practice of static linking in Go, which bundles all dependencies into a single executable.</description>
-    </item>
-    <item>
-      <title>Clean Code</title>
-      <link>https://example.org/post/clean-code/</link>
-      <pubDate>Sat, 04 May 2024 10:00:00 +0000</pubDate>
-      <guid>https://example.org/post/clean-code/</guid>
-      <description>Readable Code: Practical Tips for Senior Software Engineers #Senior software engineers are expected to write clean, readable code — but what does that mean, and how do we do it?</description>
     </item>
   </channel>
 </rss>
